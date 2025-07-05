@@ -80,3 +80,27 @@ function loan_emi_details_schema() {
 
   return $schema;
 }
+
+/**
+ * Add loan_amount field to loan_emi_details table.
+ */
+function loan_emi_details_update_9001() {
+  $spec = [
+    'description' => 'EMI amount.',
+    'type' => 'float',
+    'not null' => FALSE,
+  ];
+  \Drupal::database()->schema()->addField('loan_emi_details', 'emi_amount', $spec);
+}
+
+/**
+ * Add loan_amount field to loan_emi_details table.
+ */
+function loan_emi_details_update_9002() {
+  $spec1 = [
+    'description' => 'Total Loan amount.',
+    'type' => 'float',
+    'not null' => FALSE,
+  ];
+  \Drupal::database()->schema()->addField('loan_emi_details', 'loan_amount', $spec1);
+}

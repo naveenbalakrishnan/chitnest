@@ -73,6 +73,8 @@ function loan_emi_details_node_presave(NodeInterface $node) {
           'agent_collected' => $agent_name,
           'collected_date' => NULL,
           'collected_mode' => '',
+		  'emi_amount' => $emi_amount,
+		  'loan_amount' => $loan_amount,
         ])
         ->execute();
     }

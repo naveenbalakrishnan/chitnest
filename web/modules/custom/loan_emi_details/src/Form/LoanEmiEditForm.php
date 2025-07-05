@@ -27,13 +27,12 @@ class LoanEmiEditForm extends FormBase {
   }
 
   /**
-   * Build form now accepts both emi_number and loan_id as parameters.
+   * Build form accepts emi_number and loan_id parameters.
    */
   public function buildForm(array $form, FormStateInterface $form_state, $emi_number = NULL, $loan_id = NULL) {
     $connection = Database::getConnection();
 
-    // You can now use both emi_number and loan_id in your query if needed.
-    // Here I just fetch by emi_number as primary key.
+    // Fetch record based on emi_number and loan_id
     $record = $connection->select('loan_emi_details', 'l')
       ->fields('l')
       ->condition('emi_number', $emi_number)
@@ -41,12 +40,35 @@ class LoanEmiEditForm extends FormBase {
       ->execute()
       ->fetchObject();
 
-	  if (!$record) {
+    if (!$record) {
       $this->messenger()->addError($this->t('EMI record not found.'));
       return [];
     }
 
-    // Store emi_number and loan_id as hidden values in the form
+    // Calculate days pending
+    $now = new \DateTime();
+    $emi_due_date = !empty($record->end_date) ? new \DateTime($record->end_date) : NULL;
+
+    $days_pending = 0;
+    if ($emi_due_date && $emi_due_date < $now) {
+      $interval = $emi_due_date->diff($now);
+      $days_pending = $interval->days;
+    }
+
+    // Calculate penalty = 10% of emi_amount * days_pending
+    $calculated_penalty = 0;
+    if (!empty($record->emi_amount) && $days_pending > 0) {
+      $calculated_penalty = $record->emi_amount * 0.10 * $days_pending;
+      // Round to 2 decimals
+      $calculated_penalty = round($calculated_penalty, 2);
+    }
+
+    $form['loan_title'] = [
+      '#type' => 'markup',
+      '#markup' => '<h2>' . $this->t('Loan ID: @loan and EMI Number: @emi', ['@loan' => htmlspecialchars($loan_id), '@emi' => $emi_number]) . '</h2>',
+    ];
+
+    // Hidden fields to retain values on submit
     $form['emi_number'] = [
       '#type' => 'value',
       '#value' => $emi_number,
@@ -56,17 +78,54 @@ class LoanEmiEditForm extends FormBase {
       '#value' => $loan_id,
     ];
 
+    // 2x2 table for EMI Date, Days Pending, Loan Amount, EMI Amount
+    $form['loan_info_table'] = [
+  '#type' => 'markup',
+  '#markup' => '
+    <table style="
+      border: 1px solid #ddd; 
+      border-collapse: collapse; 
+      width: 60%; 
+      margin-bottom: 20px; 
+      font-family: Arial, sans-serif;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background: #f9f9f9;
+      ">
+      <tr style="background: #e2f0d9;">
+        <th style="border: 1px solid #ddd; padding: 10px 15px; text-align:left;">EMI Date</th>
+        <td style="border: 1px solid #ddd; padding: 10px 15px;">' . (!empty($record->start_date) ? date('d M Y', strtotime($record->start_date)) : 'N/A') . '</td>
+      </tr>
+      <tr>
+        <th style="border: 1px solid #ddd; padding: 10px 15px; text-align:left;">Days Pending</th>
+        <td style="border: 1px solid #ddd; padding: 10px 15px; color: ' . ($days_pending > 0 ? 'red' : 'green') . '; font-weight: bold;">' . ($days_pending > 0 ? $days_pending . ' days' : 'Not pending') . '</td>
+      </tr>
+      <tr style="background: #e2f0d9;">
+        <th style="border: 1px solid #ddd; padding: 10px 15px; text-align:left;">Loan Amount</th>
+        <td style="border: 1px solid #ddd; padding: 10px 15px; color: green; font-weight: bold;">' . ($record->loan_amount !== NULL ? number_format($record->loan_amount, 2) : 'N/A') . '</td>
+      </tr>
+      <tr>
+        <th style="border: 1px solid #ddd; padding: 10px 15px; text-align:left;">EMI Amount</th>
+        <td style="border: 1px solid #ddd; padding: 10px 15px; color: green; font-weight: bold;">' . ($record->emi_amount !== NULL ? number_format($record->emi_amount, 2) : 'N/A') . '</td>
+      </tr>
+    </table>
+  ',
+];
+
+
+
     $form['penalty'] = [
       '#type' => 'number',
       '#title' => $this->t('Penalty'),
-      '#default_value' => $record->penalty,
+      '#default_value' => $calculated_penalty !== NULL ? $calculated_penalty : 0,
       '#step' => '0.01',
+      '#description' => $this->t('Calculated as 10% of EMI amount times number of days pending.'),
     ];
 
     $form['collected_date'] = [
       '#type' => 'date',
       '#title' => $this->t('Collected Date'),
       '#default_value' => $record->collected_date ? date('Y-m-d', strtotime($record->collected_date)) : '',
+      '#required' => TRUE,
     ];
 
     $form['collected_mode'] = [
@@ -92,14 +151,12 @@ class LoanEmiEditForm extends FormBase {
   }
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    // Get emi_number and loan_id from submitted form values
     $emi_number = $form_state->getValue('emi_number');
     $loan_id = $form_state->getValue('loan_id');
     $collected_date = $form_state->getValue('collected_date');
     $collected_mode = $form_state->getValue('collected_mode');
     $penalty = $form_state->getValue('penalty');
 
-    // Update the record with both conditions just in case
     Database::getConnection()->update('loan_emi_details')
       ->fields([
         'collected_date' => $collected_date ?: NULL,
