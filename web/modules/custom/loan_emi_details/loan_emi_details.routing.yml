@@ -1,0 +1,25 @@
+loan_emi_details.report:
+  path: '/loan-emi-report'
+  defaults:
+    _form: '\Drupal\loan_emi_details\Form\LoanEmiEditableReportForm'
+    _title: 'Loan EMI Report'
+  requirements:
+    _permission: 'access content'
+
+loan_emi_details.edit_form:
+  path: '/loan-emi/edit/{emi_number}/{loan_id}'
+  defaults:
+    _form: '\Drupal\loan_emi_details\Form\LoanEmiEditForm'
+    _title: 'Edit Loan EMI'
+  requirements:
+    _permission: 'access content'
+    emi_number: \d+
+    loan_id: \d+
+
+pending_payments.report:
+  path: '/pending_payments'
+  defaults:
+    _form: '\Drupal\loan_emi_details\Form\PendingPaymentsReportForm'
+    _title: 'Pending Payments'
+  requirements:
+    _permission: 'access content'

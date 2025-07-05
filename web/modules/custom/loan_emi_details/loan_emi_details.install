@@ -1,0 +1,82 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function loan_emi_details_schema() {
+  $schema['loan_emi_details'] = [
+    'description' => 'Stores Loan EMI details.',
+    'fields' => [
+      'table_id' => [
+        'description' => 'Primary Key: Unique Loan ID.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+	  'loan_id' => [
+        'description' => 'Loan Id.',
+        'type' => 'varchar',
+        'length' => 100,
+        'not null' => TRUE,
+      ],
+      'customer_name' => [
+        'description' => 'Name of the customer.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'start_date' => [
+        'description' => 'Start date of the loan.',
+        'type' => 'datetime',
+        'mysql_type' => 'datetime',
+        'not null' => TRUE,
+      ],
+      'end_date' => [
+        'description' => 'End date of the loan.',
+        'type' => 'datetime',
+        'mysql_type' => 'datetime',
+        'not null' => TRUE,
+      ],
+      'emi_number' => [
+        'description' => 'EMI number or count.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'status' => [
+        'description' => 'Status of the EMI.',
+        'type' => 'varchar',
+        'length' => 100,
+        'not null' => TRUE,
+        'default' => 'pending',
+      ],
+      'penalty' => [
+        'description' => 'Penalty amount, if any.',
+        'type' => 'float',
+        'not null' => FALSE,
+      ],
+      'agent_collected' => [
+        'description' => 'Name of the collecting agent.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+      ],
+      'collected_date' => [
+        'description' => 'Date of collection.',
+        'type' => 'datetime',
+        'mysql_type' => 'datetime',
+        'not null' => FALSE,
+      ],
+      'collected_mode' => [
+        'description' => 'Mode of collection (Cash, Bank, etc.).',
+        'type' => 'varchar',
+        'length' => 100,
+        'not null' => FALSE,
+      ],
+    ],
+    'primary key' => ['table_id'],
+  ];
+
+  return $schema;
+}

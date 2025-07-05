@@ -1,0 +1,11 @@
+/web/sites/default/files/
+/vendor/
+/core/
+/node_modules/
+.env
+.settings.php
+/sites/*/settings.php
+/sites/*/services.yml
+/sites/*/files
+/sites/simpletest
+/phpunit.xml

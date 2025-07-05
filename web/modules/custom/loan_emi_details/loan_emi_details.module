@@ -1,0 +1,89 @@
+<?php
+
+use Drupal\node\NodeInterface;
+
+function loan_emi_details_node_presave(NodeInterface $node) {
+	
+  \Drupal::logger('loan_emi_details')->notice('coming in. 1');
+
+  if ($node->bundle() === 'loan_details' && $node->isNew()) {
+    \Drupal::logger('loan_emi_details')->notice('coming in.2');
+    $loan_amount = (float) $node->get('field_loan_amount')->value;
+    $emi_amount = (float) $node->get('field_emi_amount')->value;
+    $start_date_raw = $node->get('field_start_date')->value;
+	$loan_identification_number = (float) $node->get('field_loan_identification_number')->value;
+
+
+    if ($loan_amount <= 0 || $emi_amount <= 0 || empty($start_date_raw)) {
+      \Drupal::logger('loan_emi_details')->warning('Missing or invalid values. Skipping EMI creation.');
+      return;
+    }
+
+    // Get interval from loan_mode taxonomy term
+    $interval_days = 1; // Default to daily
+    if (!$node->get('field_loan_mode')->isEmpty()) {
+      $term = $node->get('field_loan_mode')->entity;
+      if ($term) {
+        $term_name = strtolower($term->label());
+        \Drupal::logger('loan_emi_details')->notice('Loan mode term: @term', ['@term' => $term_name]);
+
+        if ($term_name === 'weekly') {
+          $interval_days = 7;
+        } elseif ($term_name === 'monthly') {
+          $interval_days = 30;
+        }
+      }
+    }
+
+    // 🛠️ Get customer and agent from the title field (entity reference)
+    $customer_name = '';
+    $agent_name = '';
+//dump($node);die;
+    // Check if title field is an entity reference (non-standard setup)
+    if (!$node->get('field_cutomer_name')->isEmpty()) {
+      $customer_node = $node->get('field_cutomer_name')->entity;
+      if ($customer_node instanceof NodeInterface) {
+        $customer_name = $customer_node->getTitle();
+        if (!$customer_node->get('field_agent_mapped')->isEmpty()) {
+          $agent_node = $customer_node->get('field_agent_mapped')->entity;
+          if ($agent_node instanceof NodeInterface) {
+            $agent_name = $agent_node->getTitle();
+          }
+        }
+      }
+    }
+
+    $emi_count = (int) ceil($loan_amount / $emi_amount);
+    $start_date = new \DateTime($start_date_raw);
+    $database = \Drupal::database();
+
+    for ($i = 1; $i <= $emi_count; $i++) {
+      $emi_date = clone $start_date;
+      $emi_date->modify("+".($interval_days * ($i - 1))." days");
+
+      $database->insert('loan_emi_details')
+        ->fields([
+		  'loan_id' => $loan_identification_number,
+          'customer_name' => $customer_name,
+          'start_date' => $start_date->format('Y-m-d H:i:s'),
+          'end_date' => $emi_date->format('Y-m-d H:i:s'),
+          'emi_number' => $i,
+          'status' => 'pending',
+          'penalty' => 0,
+          'agent_collected' => $agent_name,
+          'collected_date' => NULL,
+          'collected_mode' => '',
+        ])
+        ->execute();
+    }
+
+    \Drupal::logger('loan_emi_details')->notice('Created @count EMI entries for "@title", agent: @agent.', [
+      '@count' => $emi_count,
+      '@title' => $customer_name,
+      '@agent' => $agent_name,
+    ]);
+  }
+}
+
+
+

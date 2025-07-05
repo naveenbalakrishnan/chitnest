@@ -1,0 +1,8 @@
+name: 'Loan EMI Details'
+type: module
+description: 'Custom module to manage Loan EMI Details'
+core_version_requirement: ^10
+package: Custom
+version: 1.0
+dependencies:
+  - drupal:field
