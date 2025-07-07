@@ -1,3 +1,138 @@
+.site-header__inner__container {
+    display: block;
+}
+.site-header {
+    width: 250px;
+    float: left;
+}
+#page {
+    overflow: hidden;
+}
+.site-footer {
+    clear: both;
+}
+.site-header__initial {
+    display: none;
+}
+.site-header__inner {
+    width: 100%;
+}
+.site-header__inner .container {
+    padding: 0;
+}
 ul.menu.menu--level-1 {
-    display: flex !important;
+    display: block !important;
+    margin: 0;
+}
+li {
+    list-style: none;
+}
+ul.menu a {
+    color: #000;
+    text-decoration: none;
+    padding: 20px;
+    display: block;
+}
+
+@import "https://fonts.googleapis.com/css?family=Open+Sans:600,700";
+
+* {
+    font-family: "Open Sans", sans-serif;
+}
+
+.views-table {
+    margin: auto;
+    min-width: 300px;
+    max-width: 100%;
+    border-collapse: collapse;
+}
+
+.views-table tr:first-child {
+    border-top: none;
+    background: #428bca;
+    color: #fff;
+}
+
+.views-table tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background-color: #f5f9fc;
+}
+
+.views-table tr:nth-child(odd):not(:first-child) {
+    background-color: #ebf3f9;
+}
+
+.views-table th {
+    display: none;
+}
+
+.views-table td {
+    display: block;
+}
+
+.views-table td:first-child {
+    margin-top: 0.5em;
+}
+
+.views-table td:last-child {
+    margin-bottom: 0.5em;
+}
+
+.views-table td:before {
+    content: attr(data-th) ": ";
+    font-weight: bold;
+    width: 120px;
+    display: inline-block;
+    color: #000;
+}
+
+.views-table th,
+.views-table td {
+    text-align: left;
+}
+
+.views-table {
+    color: #333;
+    border-radius: 0.4em;
+    overflow: hidden;
+}
+
+.views-table tr {
+    border-color: #bfbfbf;
+}
+
+.views-table th,
+.views-table td {
+    padding: 0.5em 1em;
+}
+@media screen and (max-width: 601px) {
+    .views-table tr:nth-child(2) {
+        border-top: none;
+    }
+}
+@media screen and (min-width: 600px) {
+    .views-table tr:hover:not(:first-child) {
+        background-color: #d8e7f3;
+    }
+    .views-table td:before {
+        display: none;
+    }
+    .views-table th,
+    .views-table td {
+        display: table-cell;
+        padding: 0.25em 0.5em;
+    }
+    .views-table th:first-child,
+    .views-table td:first-child {
+        padding-left: 0;
+    }
+    .views-table th:last-child,
+    .views-table td:last-child {
+        padding-right: 0;
+    }
+    .views-table th,
+    .views-table td {
+        padding: 1em !important;
+    }
 }

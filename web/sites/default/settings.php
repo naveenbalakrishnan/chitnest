@@ -795,8 +795,8 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # $settings['migrate_source_version'] = '';
 # $settings['migrate_file_public_path'] = '';
 # $settings['migrate_file_private_path'] = '';
-$databases['default']['default'] = array (
-  'database' => 'chitnest',
+$databases['default']['default'] = array(
+  'database' => 'chitnest_db',
   'username' => 'root',
   'password' => '',
   'prefix' => 'chitnest_',
@@ -830,3 +830,4 @@ $settings['hash_salt'] = 'nSiZDVsqCMaD-RaBUYdGRm1-cLLRVM0oU0gPQaFTiExHHv6rLO0G2l
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
+$base_url = 'http://localhost/chitnest'; // Exact path and casing!
