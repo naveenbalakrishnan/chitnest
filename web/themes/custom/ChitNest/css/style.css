@@ -23,21 +23,26 @@
 ul.menu.menu--level-1 {
     display: block !important;
     margin: 0;
+    background: #428bca;
+    color: #fff;
 }
 li {
     list-style: none;
 }
 ul.menu a {
-    color: #000;
+    color: #fff;
     text-decoration: none;
     padding: 20px;
     display: block;
 }
-
-@import "https://fonts.googleapis.com/css?family=Open+Sans:600,700";
-
-* {
-    font-family: "Open Sans", sans-serif;
+ul.menu a:hover {
+    background-color: #012647;
+}
+ul.menu a.menu__link--active-trail {
+    background-color: #012647;
+}
+main .region--content {
+    display: block;
 }
 
 .views-table {
@@ -47,10 +52,10 @@ ul.menu a {
     border-collapse: collapse;
 }
 
-.views-table tr:first-child {
+.views-table th {
     border-top: none;
     background: #428bca;
-    color: #fff;
+    color: #fff !important;
 }
 
 .views-table tr {
