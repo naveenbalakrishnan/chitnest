@@ -1,0 +1,14 @@
+uuid: 25c63f9a-ab0c-4826-a253-038b1db4e4b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.manager
+  module:
+    - user
+id: user_add_role_action.manager
+label: 'Add the Manager role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: manager

@@ -1,0 +1,20 @@
+uuid: d77e5d22-1e06-4853-b703-b0b4ac807b43
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_loan_identification_number
+field_name: field_loan_identification_number
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

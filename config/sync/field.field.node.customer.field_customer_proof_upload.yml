@@ -1,0 +1,27 @@
+uuid: 9652d2a1-3b72-40f5-945f-21471d91fdbf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_customer_proof_upload
+    - node.type.customer
+  module:
+    - file
+id: node.customer.field_customer_proof_upload
+field_name: field_customer_proof_upload
+entity_type: node
+bundle: customer
+label: 'Proof Upload'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt pdf jpeg jpg'
+  max_filesize: ''
+  description_field: false
+field_type: file

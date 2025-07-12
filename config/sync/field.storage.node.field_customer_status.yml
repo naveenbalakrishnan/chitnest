@@ -1,0 +1,20 @@
+uuid: 0656c280-113b-4a71-8a2c-34d0819ce2ce
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_customer_status
+field_name: field_customer_status
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

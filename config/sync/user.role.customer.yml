@@ -1,0 +1,9 @@
+uuid: 502e42e2-ef17-4024-b332-04bae722ae32
+langcode: en
+status: true
+dependencies: {  }
+id: customer
+label: Customer
+weight: 6
+is_admin: null
+permissions: {  }

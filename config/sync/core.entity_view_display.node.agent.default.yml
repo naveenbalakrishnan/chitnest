@@ -1,0 +1,64 @@
+uuid: c8a05ad2-f8ee-4975-8686-603f0f249d25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.agent.field_agent_address
+    - field.field.node.agent.field_agent_id
+    - field.field.node.agent.field_agent_mobile_number
+    - field.field.node.agent.field_agent_proof_upload
+    - field.field.node.agent.field_handling_customers
+    - node.type.agent
+  module:
+    - file
+    - user
+id: node.agent.default
+targetEntityType: node
+bundle: agent
+mode: default
+content:
+  field_agent_address:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_agent_id:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_agent_mobile_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_agent_proof_upload:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_handling_customers:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

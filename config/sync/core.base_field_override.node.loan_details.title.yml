@@ -1,0 +1,18 @@
+uuid: 852975f0-f6d6-46a7-8fce-00f811556040
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.loan_details
+id: node.loan_details.title
+field_name: title
+entity_type: node
+bundle: loan_details
+label: 'Loan Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

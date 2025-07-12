@@ -1,0 +1,8 @@
+uuid: 5ade3e69-8801-41af-991d-7c26da5c28fd
+langcode: en
+status: true
+dependencies: {  }
+name: 'Interest Rate'
+vid: interest_rate
+description: ''
+weight: 0

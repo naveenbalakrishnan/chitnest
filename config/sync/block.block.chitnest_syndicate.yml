@@ -1,0 +1,23 @@
+uuid: 33f2b2ab-4366-4e78-9b15-ca543826ea43
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+  theme:
+    - chitnest
+_core:
+  default_config_hash: 0gq3VPg-_UM69FCCWurLFIrrnIjC2HLKhwo9iQNtcUo
+id: chitnest_syndicate
+theme: chitnest
+region: header
+weight: -1
+provider: null
+plugin: node_syndicate_block
+settings:
+  id: node_syndicate_block
+  label: 'RSS feed'
+  label_display: '0'
+  provider: node
+  block_count: 10
+visibility: {  }

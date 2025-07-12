@@ -1,0 +1,29 @@
+uuid: 26497785-5495-4918-ad50-459bb75e7c56
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_status
+    - paragraphs.paragraphs_type.monthly_emi
+    - taxonomy.vocabulary.emi_status
+id: paragraph.monthly_emi.field_status
+field_name: field_status
+entity_type: paragraph
+bundle: monthly_emi
+label: Status
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      emi_status: emi_status
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,29 @@
+uuid: 684846a9-0753-42e6-9884-ff7af5cab4d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_handling_agents
+    - node.type.agent
+    - node.type.manager
+id: node.manager.field_handling_agents
+field_name: field_handling_agents
+entity_type: node
+bundle: manager
+label: 'Handling Agents'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      agent: agent
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

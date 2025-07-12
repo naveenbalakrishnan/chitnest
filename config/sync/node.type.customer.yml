@@ -1,0 +1,17 @@
+uuid: 14bbc374-493a-420d-8097-684be14098b7
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Customer
+type: customer
+description: 'Add a customer with his/her Details'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

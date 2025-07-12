@@ -1,0 +1,21 @@
+uuid: d31d375e-1e8a-4b69-a672-d80f078cbc1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_paid_date
+    - paragraphs.paragraphs_type.monthly_emi
+  module:
+    - datetime
+id: paragraph.monthly_emi.field_paid_date
+field_name: field_paid_date
+entity_type: paragraph
+bundle: monthly_emi
+label: 'Paid Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

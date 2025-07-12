@@ -1,0 +1,35 @@
+uuid: 91690e3a-896e-4b47-92c4-9d20e2fc9e24
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.admin-menu
+  module:
+    - system
+    - user
+  theme:
+    - chitnest
+id: chitnest_adminmenu
+theme: chitnest
+region: header
+weight: -7
+provider: null
+plugin: 'system_menu_block:admin-menu'
+settings:
+  id: 'system_menu_block:admin-menu'
+  label: 'Admin Menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      administrator: administrator
+      manager: manager
+      agent: agent

@@ -1,0 +1,19 @@
+uuid: 31064fc9-1b2b-4f7f-9321-cf0ec065359f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_customer_address
+    - node.type.customer
+id: node.customer.field_customer_address
+field_name: field_customer_address
+entity_type: node
+bundle: customer
+label: Address
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

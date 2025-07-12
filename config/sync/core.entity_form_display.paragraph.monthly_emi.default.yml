@@ -1,0 +1,46 @@
+uuid: 38953c15-2220-4617-b108-6be996b2656a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.monthly_emi.field_amount
+    - field.field.paragraph.monthly_emi.field_month
+    - field.field.paragraph.monthly_emi.field_paid_date
+    - field.field.paragraph.monthly_emi.field_status
+    - paragraphs.paragraphs_type.monthly_emi
+  module:
+    - datetime
+id: paragraph.monthly_emi.default
+targetEntityType: paragraph
+bundle: monthly_emi
+mode: default
+content:
+  field_amount:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_month:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_paid_date:
+    type: datetime_default
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_status:
+    type: options_buttons
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,32 @@
+uuid: 68183b16-1398-4456-86c5-993e9cd7d789
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.customer.field_agent_mapped
+    - field.field.node.customer.field_customer_address
+    - field.field.node.customer.field_customer_id
+    - field.field.node.customer.field_customer_mobile_number
+    - field.field.node.customer.field_customer_proof_upload
+    - field.field.node.customer.field_customer_status
+    - node.type.customer
+  module:
+    - user
+id: node.customer.teaser
+targetEntityType: node
+bundle: customer
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_agent_mapped: true
+  field_customer_address: true
+  field_customer_id: true
+  field_customer_mobile_number: true
+  field_customer_proof_upload: true
+  field_customer_status: true

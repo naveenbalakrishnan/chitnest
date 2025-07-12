@@ -1,0 +1,29 @@
+uuid: e1698b8e-9359-4dc5-8063-4412dcdb776d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_agent_mapped
+    - node.type.agent
+    - node.type.customer
+id: node.customer.field_agent_mapped
+field_name: field_agent_mapped
+entity_type: node
+bundle: customer
+label: 'Agent Mapped'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      agent: agent
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

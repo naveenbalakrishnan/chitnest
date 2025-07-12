@@ -1,0 +1,21 @@
+uuid: 76cda188-0ed3-4c2d-ba51-c4251f95205c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_start_date
+    - node.type.loan_details
+  module:
+    - datetime
+id: node.loan_details.field_start_date
+field_name: field_start_date
+entity_type: node
+bundle: loan_details
+label: 'Start Date'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

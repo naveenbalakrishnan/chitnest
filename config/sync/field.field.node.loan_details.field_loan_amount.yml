@@ -1,0 +1,19 @@
+uuid: 384827e9-4671-40a6-bd1d-198ef4aa5c9b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_loan_amount
+    - node.type.loan_details
+id: node.loan_details.field_loan_amount
+field_name: field_loan_amount
+entity_type: node
+bundle: loan_details
+label: 'Loan Amount'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

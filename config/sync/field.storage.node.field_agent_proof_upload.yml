@@ -1,0 +1,23 @@
+uuid: e2ba66d7-98bd-4721-bea6-e08d78ecceb0
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - node
+id: node.field_agent_proof_upload
+field_name: field_agent_proof_upload
+entity_type: node
+type: file
+settings:
+  target_type: file
+  display_field: true
+  display_default: true
+  uri_scheme: public
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

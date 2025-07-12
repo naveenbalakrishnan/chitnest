@@ -1,0 +1,14 @@
+uuid: 5f914c80-011f-42da-9634-548adafc495f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.customer
+  module:
+    - node
+id: agent
+label: Agent
+weight: 5
+is_admin: null
+permissions:
+  - 'create customer content'

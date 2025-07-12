@@ -1,0 +1,19 @@
+uuid: 319c3b0d-e61e-45f9-a5f4-5c27cbcb77d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_customer_mobile_number
+    - node.type.customer
+id: node.customer.field_customer_mobile_number
+field_name: field_customer_mobile_number
+entity_type: node
+bundle: customer
+label: 'Mobile Number'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

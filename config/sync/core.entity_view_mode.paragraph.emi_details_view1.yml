@@ -1,0 +1,10 @@
+uuid: 38834992-aaa2-40bb-958e-38009f19039f
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.emi_details_view1
+label: 'EMI Details View1'
+targetEntityType: paragraph
+cache: true

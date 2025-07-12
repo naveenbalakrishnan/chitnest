@@ -1,0 +1,18 @@
+uuid: 431946c7-b8c3-4be4-8e76-c36aa3044c75
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Agent
+type: agent
+description: 'To add agent to ChitNest'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

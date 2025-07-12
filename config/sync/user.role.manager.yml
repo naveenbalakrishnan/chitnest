@@ -1,0 +1,19 @@
+uuid: 933bc3a3-88e4-4090-b000-d28f36fe8a84
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.customer
+  module:
+    - node
+id: manager
+label: Manager
+weight: 4
+is_admin: null
+permissions:
+  - 'create customer content'
+  - 'delete any customer content'
+  - 'delete customer revisions'
+  - 'delete own customer content'
+  - 'edit any customer content'
+  - 'edit own customer content'

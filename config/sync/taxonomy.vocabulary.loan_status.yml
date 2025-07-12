@@ -1,0 +1,8 @@
+uuid: 4083f366-f02b-428d-9b2d-d5306dbe24d3
+langcode: en
+status: true
+dependencies: {  }
+name: 'Loan Status'
+vid: loan_status
+description: ''
+weight: 0

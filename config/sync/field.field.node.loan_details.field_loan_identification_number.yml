@@ -1,0 +1,23 @@
+uuid: 2b171ccf-efe6-4c73-a498-1d07d69a0862
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_loan_identification_number
+    - node.type.loan_details
+id: node.loan_details.field_loan_identification_number
+field_name: field_loan_identification_number
+entity_type: node
+bundle: loan_details
+label: 'Loan Identification Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

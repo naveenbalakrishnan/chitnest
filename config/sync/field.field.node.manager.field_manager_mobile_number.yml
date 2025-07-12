@@ -1,0 +1,19 @@
+uuid: 7316d3fc-475e-4638-9536-50aa18c8e44a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_manager_mobile_number
+    - node.type.manager
+id: node.manager.field_manager_mobile_number
+field_name: field_manager_mobile_number
+entity_type: node
+bundle: manager
+label: 'Mobile Number'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

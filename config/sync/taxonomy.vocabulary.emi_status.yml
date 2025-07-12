@@ -1,0 +1,8 @@
+uuid: 90fd51d6-e8e5-4864-a930-dd948662963a
+langcode: en
+status: true
+dependencies: {  }
+name: 'EMI Status'
+vid: emi_status
+description: ''
+weight: 0

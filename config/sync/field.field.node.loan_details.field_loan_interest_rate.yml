@@ -1,0 +1,29 @@
+uuid: 1b1c2d80-45d4-4eef-9330-cf664751a2ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_loan_interest_rate
+    - node.type.loan_details
+    - taxonomy.vocabulary.interest_rate
+id: node.loan_details.field_loan_interest_rate
+field_name: field_loan_interest_rate
+entity_type: node
+bundle: loan_details
+label: 'Interest Rate'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      interest_rate: interest_rate
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

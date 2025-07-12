@@ -1,0 +1,8 @@
+uuid: 610199a4-f78e-432f-be66-a94745a4798f
+langcode: en
+status: true
+dependencies: {  }
+name: 'Loan Type'
+vid: l
+description: 'Select Weekly or Monthly'
+weight: 0

@@ -1,0 +1,27 @@
+uuid: c4d54887-9180-40c4-9a38-e776c6082314
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_manager_proof_upload
+    - node.type.manager
+  module:
+    - file
+id: node.manager.field_manager_proof_upload
+field_name: field_manager_proof_upload
+entity_type: node
+bundle: manager
+label: 'Proof Upload'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt pdf jpeg jpg'
+  max_filesize: ''
+  description_field: false
+field_type: file

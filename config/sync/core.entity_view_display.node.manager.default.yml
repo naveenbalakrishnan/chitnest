@@ -1,0 +1,64 @@
+uuid: 21afd4bf-1aa5-412d-9a46-d6aa006fb1d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.manager.field_handling_agents
+    - field.field.node.manager.field_manager_address
+    - field.field.node.manager.field_manager_id
+    - field.field.node.manager.field_manager_mobile_number
+    - field.field.node.manager.field_manager_proof_upload
+    - node.type.manager
+  module:
+    - file
+    - user
+id: node.manager.default
+targetEntityType: node
+bundle: manager
+mode: default
+content:
+  field_handling_agents:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_manager_address:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_manager_id:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_manager_mobile_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_manager_proof_upload:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

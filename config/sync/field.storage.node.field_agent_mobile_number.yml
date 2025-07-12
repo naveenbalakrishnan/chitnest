@@ -1,0 +1,21 @@
+uuid: 1c87f7eb-66f2-4466-b0c9-1fa830fc3e2d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_agent_mobile_number
+field_name: field_agent_mobile_number
+entity_type: node
+type: string
+settings:
+  max_length: 13
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

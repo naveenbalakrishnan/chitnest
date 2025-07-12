@@ -1,0 +1,10 @@
+uuid: 9ef99e19-35aa-4918-bf67-5a02c1f0c764
+langcode: en
+status: true
+dependencies: {  }
+id: monthly_emi
+label: 'Monthly EMI'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

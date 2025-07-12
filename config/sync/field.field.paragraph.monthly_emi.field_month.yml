@@ -1,0 +1,29 @@
+uuid: 3834a36e-d5da-4ea5-9a5e-1a108cdbcb18
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_month
+    - paragraphs.paragraphs_type.monthly_emi
+    - taxonomy.vocabulary.month
+id: paragraph.monthly_emi.field_month
+field_name: field_month
+entity_type: paragraph
+bundle: monthly_emi
+label: Month
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      month: month
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

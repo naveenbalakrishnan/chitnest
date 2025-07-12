@@ -1,0 +1,19 @@
+uuid: 72c39ab0-2b01-4813-abc2-62f41055731d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_agent_mobile_number
+    - node.type.agent
+id: node.agent.field_agent_mobile_number
+field_name: field_agent_mobile_number
+entity_type: node
+bundle: agent
+label: 'Mobile Number'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

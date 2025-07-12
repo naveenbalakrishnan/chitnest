@@ -1,0 +1,19 @@
+uuid: 2dd0b245-f258-46fd-8f8c-de10e00b036c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_handling_customers
+field_name: field_handling_customers
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

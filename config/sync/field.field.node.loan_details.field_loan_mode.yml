@@ -1,0 +1,29 @@
+uuid: 72b009d1-a650-4001-9c95-ebeafecab16e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_loan_mode
+    - node.type.loan_details
+    - taxonomy.vocabulary.l
+id: node.loan_details.field_loan_mode
+field_name: field_loan_mode
+entity_type: node
+bundle: loan_details
+label: 'Loan Mode'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      l: l
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

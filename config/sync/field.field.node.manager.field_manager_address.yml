@@ -1,0 +1,19 @@
+uuid: 147d2a79-3a10-4b14-9b06-bd25545b8f0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_manager_address
+    - node.type.manager
+id: node.manager.field_manager_address
+field_name: field_manager_address
+entity_type: node
+bundle: manager
+label: Address
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,22 @@
+uuid: 1aef4772-e4d6-4d08-a74b-222fad1c9f48
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - chitnest
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: chitnest_help
+theme: chitnest
+region: header
+weight: -6
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

@@ -1,0 +1,52 @@
+uuid: 08da73ca-0762-4592-b70a-5fbf34de89bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.emi_details_view1
+    - field.field.paragraph.monthly_emi.field_amount
+    - field.field.paragraph.monthly_emi.field_month
+    - field.field.paragraph.monthly_emi.field_paid_date
+    - field.field.paragraph.monthly_emi.field_status
+    - paragraphs.paragraphs_type.monthly_emi
+  module:
+    - datetime
+id: paragraph.monthly_emi.emi_details_view1
+targetEntityType: paragraph
+bundle: monthly_emi
+mode: emi_details_view1
+content:
+  field_amount:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_month:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_paid_date:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: olivero_medium
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_status:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

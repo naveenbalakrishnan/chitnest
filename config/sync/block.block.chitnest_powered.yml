@@ -1,0 +1,22 @@
+uuid: 2e27876b-cf58-43b2-b43d-87bb9379318d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - chitnest
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: chitnest_powered
+theme: chitnest
+region: header
+weight: -2
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

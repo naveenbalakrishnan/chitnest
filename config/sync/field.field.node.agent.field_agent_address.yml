@@ -1,0 +1,19 @@
+uuid: 0c52e8c4-356c-40a0-b98e-399ec705ad09
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_agent_address
+    - node.type.agent
+id: node.agent.field_agent_address
+field_name: field_agent_address
+entity_type: node
+bundle: agent
+label: Address
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

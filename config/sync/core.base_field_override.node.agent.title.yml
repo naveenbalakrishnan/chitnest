@@ -1,0 +1,18 @@
+uuid: 56ff70dd-b340-4a43-bc08-916d97165ac1
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.agent
+id: node.agent.title
+field_name: title
+entity_type: node
+bundle: agent
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

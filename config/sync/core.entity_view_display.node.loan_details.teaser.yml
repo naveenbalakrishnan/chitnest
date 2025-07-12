@@ -1,0 +1,36 @@
+uuid: 281dc7ae-f487-4e19-ac61-9498ed710315
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.loan_details.field_cutomer_name
+    - field.field.node.loan_details.field_emi_amount
+    - field.field.node.loan_details.field_loan_amount
+    - field.field.node.loan_details.field_loan_identification_number
+    - field.field.node.loan_details.field_loan_interest_rate
+    - field.field.node.loan_details.field_loan_mode
+    - field.field.node.loan_details.field_loan_status
+    - field.field.node.loan_details.field_start_date
+    - node.type.loan_details
+  module:
+    - user
+id: node.loan_details.teaser
+targetEntityType: node
+bundle: loan_details
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_cutomer_name: true
+  field_emi_amount: true
+  field_loan_amount: true
+  field_loan_identification_number: true
+  field_loan_interest_rate: true
+  field_loan_mode: true
+  field_loan_status: true
+  field_start_date: true
